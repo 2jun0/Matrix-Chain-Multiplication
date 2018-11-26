@@ -6,7 +6,7 @@ class Matrix:
         self.w = w
         self.h = h
 
-def main():
+def main(args):
 
     matrices = []
     # # test matrices 5x4 * 4x6 * 6x2 * 2x7
@@ -18,7 +18,7 @@ def main():
     # regular expression
     # AxB (A and B are positive numbers)
     p = re.compile('([1-9][0-9]*)[x]([1-9][0-9]*)')
-    for arg in sys.argv[1:]:
+    for arg in args:
         m = p.search(arg)
         x = int(m.group(1))
         y = int(m.group(2))
@@ -68,4 +68,4 @@ def get_expression(s, expression, i, j):
             expression[j] = '%s%s' % (expression[j], ')')
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
